@@ -1,14 +1,18 @@
+import React, { PureComponent } from 'react';
+import ReactDom from 'react-dom';
 import _ from 'lodash';
-import printMe from './print.js';
+// import printMe from './print.js';
 
-function component() {
-    var element = document.createElement('div');
-    var btn = document.createElement('button');
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    btn.innerHTML = 'Click me and check the console!';
-    btn.onclick = printMe;
-    element.appendChild(btn);
-
-    return element;
+export default class MyComponent extends PureComponent {
+  render() {
+    return (
+      <div>11bbbbb22222111</div>
+    )
+  }
 }
-document.body.appendChild(component());
+
+
+ReactDom.render(
+  <MyComponent />,
+  document.getElementsByTagName('body')[0]
+)

@@ -33,5 +33,16 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
   }
 }
