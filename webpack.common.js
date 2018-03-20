@@ -4,7 +4,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/app.js'
+    app: './src/app.js',
+    print: './src/print.js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -26,7 +27,7 @@ module.exports = {
         }
       },
       {
-        test: /\.less?$/,
+        test: /\.(less|css)?$/,
         use: [
           {
             loader: 'style-loader',
@@ -35,6 +36,18 @@ module.exports = {
             loader: 'css-loader',
             options: {
                 modules: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192, //图片小于8192字节就转成base64编码
+              name: 'static/images/[name].[ext]?hash=[hash:8]'
             }
           }
         ]
