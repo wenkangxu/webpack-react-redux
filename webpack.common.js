@@ -4,8 +4,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/app.js',
-    print: './src/print.js'
+    // babelPolyfill: 'babel-polyfill',
+    app: './src/app.js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -16,15 +16,16 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        test: /\.(js|jsx)?$/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        loader: 'babel-loader'
       },
       {
         test: /\.(less|css)?$/,
