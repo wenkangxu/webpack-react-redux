@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
 import _ from 'lodash';
-// import 'babel-polyfill';
+import 'babel-polyfill';
 import printMe from './print.js';
 import { cube } from './util/util'; //square并没有被使用
 import styles from './css/index.less';

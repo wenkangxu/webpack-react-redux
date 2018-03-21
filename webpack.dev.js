@@ -11,6 +11,24 @@ module.exports = merge(common, {
     hot: true,
     open: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.(less|css)?$/,
+        use: [
+          {
+            loader: 'style-loader' //开发环境css加载到行内
+          },
+          {
+            loader: 'css-loader',
+            options: {
+                modules: true
+            }
+          }
+        ]
+      },
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Hot Module ReplaceMent'
