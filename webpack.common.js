@@ -62,6 +62,6 @@ module.exports = {
     }
   },
   performance: {
-    hints: false
+    hints: false // webpack 打包出来的单个文件超过250k会报警，暂时没找到解决方案，先给他关了
   }
 }
