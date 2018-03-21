@@ -2,6 +2,6 @@
     width: 200px;
     height: 200px;
     color: green;
-    background: url(static/images/1.jpg?hash=15f87765);
+    background: url(/static/images/1.jpg?hash=15f87765);
     border: 1px solid red;
 }
