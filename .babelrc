@@ -4,5 +4,12 @@
     "es2015",
     "stage-3"
   ],
-  "plugins": []
+  "plugins": [
+    [
+      "import", {
+        "libraryName": "antd",
+        "style": "css"
+      }
+    ]
+  ]
 }

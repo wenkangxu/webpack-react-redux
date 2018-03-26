@@ -1,3 +1,4 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
@@ -17,14 +18,18 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.(less|css)?$/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
         use: [
           {
-            loader: MiniCssExtractPlugin.loader //将css单独打包出去
+            loader: MiniCssExtractPlugin.loader //将src文件夹css单独打包出去
           },
           {
             loader: 'css-loader',
             options: {
-                modules: true
+                modules: true,
+                minimize: true
             }
           }
         ]

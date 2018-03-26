@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -11,17 +11,20 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'production'
+    }),
+    new MiniCssExtractPlugin({
+      filename: "static/css/[name]-common.css?hash=[hash:8]",
+      chunkFilename: "static/css/[id]-common.css?hash=[hash:8]"
     })
-    // new MiniCssExtractPlugin({
-    //   filename: "[name].css",
-    //   chunkFilename: "[id].css"
-    // })
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     publicPath: '/'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.less', '.css']
   },
   module: {
     rules: [
@@ -43,7 +46,24 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.(less|css)?$/,
+        include: [
+          path.resolve(__dirname, 'node_modules')
+        ],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader //将node_modules文件夹css单独打包出去
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true
+            }
+          }
+        ]
+      },
     ]
   },
   optimization: {

@@ -14,7 +14,10 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(less|css)?$/,
+        test: /\.(less|css)$/,
+        exclude: [
+          path.resolve(__dirname, 'node_modules')
+        ],
         use: [
           {
             loader: 'style-loader' //开发环境css加载到行内
@@ -22,7 +25,13 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-                modules: true
+              modules: true
+            }
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
             }
           }
         ]

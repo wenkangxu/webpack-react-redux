@@ -5,13 +5,16 @@ import 'babel-polyfill';
 import printMe from './print.js';
 import { cube } from './util/util'; //square并没有被使用
 import styles from './css/index.less';
+import { Button } from 'antd';
 
 export default class MyComponent extends PureComponent {
   render() {
+    console.log('react', this);
     return (
       <div className={styles.index}>
         cube(222).val222ue = 
         {cube(222)}
+        <Button>按钮</Button>
       </div>
     )
   }
