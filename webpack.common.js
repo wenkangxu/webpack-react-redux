@@ -1,3 +1,10 @@
+/*
+ * @Author: XuWenKang
+ * @Description: webpack 公共配置文件
+ * @Date: 2018-04-10 10:26:21
+ * @Last Modified by: XuWenKang
+ * @Last Modified time: 2018-04-10 10:27:35
+ */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');

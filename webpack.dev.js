@@ -1,3 +1,10 @@
+/*
+ * @Author: XuWenKang
+ * @Description: webpack Develop环境配置文件
+ * @Date: 2018-04-10 10:26:25
+ * @Last Modified by: XuWenKang
+ * @Last Modified time: 2018-04-10 10:27:17
+ */
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');

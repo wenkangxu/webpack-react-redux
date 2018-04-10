@@ -1,3 +1,10 @@
+/*
+ * @Author: XuWenKang
+ * @Description: description
+ * @Date: 2018-04-10 10:25:16
+ * @Last Modified by:   XuWenKang
+ * @Last Modified time: 2018-04-10 10:25:16
+ */
 import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
 import _ from 'lodash';
