@@ -3,7 +3,7 @@
  * @Description: 路由
  * @Date: 2018-04-10 10:25:21
  * @Last Modified by: XuWenKang
- * @Last Modified time: 2018-04-10 13:18:34
+ * @Last Modified time: 2018-04-11 14:06:51
  */
 import React from "react";
 import {
@@ -15,26 +15,35 @@ import {
 import MainLayout from './route/mainLayout/Home';
 import Wrapper from './route/wrapper/Home';
 import Login from './route/login/Home';
+import Help from './route/help/Home';
+import About from './route/about/Home';
 
+//右侧内容路由
+const routes = [
+  { path: '/help', component: Help },
+  { path: '/about', component: About },
+]
 
-// const MainLayout = (props) => (
-//   <div>
-//     <ul>
-//       <li><Link to='/'>Home</Link></li>
-//       <li><Link to='/login'>Login</Link></li>
-//       <li><Link to='/about'>About</Link></li>
-//       <li><Link to='/help'>Help</Link></li>
-//     </ul>
-//     <Route path='/help' component={() => <h2>help</h2>} />
-//     <Route path='/about' component={() => <h2>about</h2>} />
-//   </div>
-// )
+// 递归创建路由
+function recursiveRouter(routeArray, parentPath = '') {
+  return routeArray.map(({ path, component, children }) => {
+    const recursivePath = parentPath + path;
+    if (!children) {
+      return (<Route exact key={recursivePath} path={recursivePath} component={component} />);
+    }
+    return (
+      <Switch key={recursivePath}>
+        <Route exact path={recursivePath} component={component} />
+        {recursiveRouter(children, recursivePath)}
+      </Switch>
+    );
+  });
+}
 
 const renderMainLayout = (props) => (
   <MainLayout>
     <Switch>
-      <Route path='/help' component={() => <h2>help</h2>} />
-      <Route path='/about' component={() => <h2>about</h2>} />
+      {recursiveRouter(routes)}
     </Switch>
   </MainLayout>
 )
