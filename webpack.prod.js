@@ -2,8 +2,8 @@
  * @Author: XuWenKang
  * @Description: webpack Production环境配置文件
  * @Date: 2018-04-10 10:26:29
- * @Last Modified by:   XuWenKang
- * @Last Modified time: 2018-04-10 10:26:29
+ * @Last Modified by: XuWenKang
+ * @Last Modified time: 2018-04-11 16:18:08
  */
 const path = require('path');
 const merge = require('webpack-merge');
@@ -36,6 +36,7 @@ module.exports = merge(common, {
             loader: 'css-loader',
             options: {
                 modules: true,
+                localIdentName: '[local]__[hash:base64:6]',
                 minimize: true
             }
           }

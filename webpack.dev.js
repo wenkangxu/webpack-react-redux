@@ -3,7 +3,7 @@
  * @Description: webpack Develop环境配置文件
  * @Date: 2018-04-10 10:26:25
  * @Last Modified by: XuWenKang
- * @Last Modified time: 2018-04-10 10:27:17
+ * @Last Modified time: 2018-04-11 16:18:18
  */
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -32,7 +32,8 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              modules: true
+              modules: true,
+              localIdentName: '[local]__[hash:base64:6]'
             }
           },
           {
