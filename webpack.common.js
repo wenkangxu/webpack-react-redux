@@ -3,7 +3,7 @@
  * @Description: webpack 公共配置文件
  * @Date: 2018-04-10 10:26:21
  * @Last Modified by: XuWenKang
- * @Last Modified time: 2018-04-10 10:27:35
+ * @Last Modified time: 2018-04-13 16:24:12
  */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
