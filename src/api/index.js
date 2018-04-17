@@ -3,12 +3,12 @@
  * @Description: description
  * @Date: 2018-04-13 15:31:03
  * @Last Modified by: XuWenKang
- * @Last Modified time: 2018-04-13 17:35:00
+ * @Last Modified time: 2018-04-13 17:39:24
 */
 
-import { apiCreator } from '../util';
+import util from '../util';
 import common from './common';
-
+const { apiCreator } = util;
 
 const api = apiCreator();
 
